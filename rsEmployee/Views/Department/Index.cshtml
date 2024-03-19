@@ -1,0 +1,30 @@
+﻿@model IEnumerable<rsEmployee.Models.Department>
+
+@{
+    ViewBag.Title = "Department List";
+}
+
+<h2>Department List</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Department ID</th>
+        <th>Department Name</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var department in Model)
+    {
+        <tr>
+            <td>@department.DepartmentId</td>
+            <td>@department.DepartmentName</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = department.DepartmentId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = department.DepartmentId })
+            </td>
+        </tr>
+    }
+</table>

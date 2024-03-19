@@ -1,0 +1,21 @@
+﻿@model rsEmployee.Models.Department
+
+@{
+    ViewBag.Title = "Create Department";
+}
+
+<h2>Create Department</h2>
+ <form asp-action="Store">
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DepartmentName)
+        @Html.TextBoxFor(model => model.DepartmentName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.DepartmentName)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
+</form>
+
